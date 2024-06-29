@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .time {
+            border: 2px solid red;
+            padding: 20px 40px;
+            border-radius: 7px;
+            color: white;
+            font-size: 70px;
+            box-shadow: 8px 8px 10px red;
+            text-shadow: 2px 2px 4px #fafafa;
+            font-style: italic;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time">time</div>
+    <script>
+        function pad(num) {
+            let p = num.toString().padStart(2, '0')
+            return p
+        }
+        let time = document.querySelector(".time");
+        setInterval(() => {
+            let current = new Date();
+            let hours = pad(current.getHours());
+            let minutes = pad(current.getMinutes());
+            let seconds = pad(current.getSeconds())
+            console.log(hours + ":" + minutes + ":" + seconds)
+            let CurrentTime = `${hours}:${minutes}:${seconds}`
+            time.innerHTML = CurrentTime;
+        }, 1000);
+    </script>
+</body>
+
+</html>
